@@ -13,31 +13,44 @@
 
   <!-- Bootstrap latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
 </head>
 
 <body>
 
   <div class="container">
     <header class="page-header">
-      <img src="../public/images/??.png" alt="Stories that inspire" class="center-block">
+      <!-- static image at the top of page -->
+      <img src="..." alt="Stories that inspire" class="rounded mx-auto d-block">
       <h1 class="text-center">"News, the Mongo Way"</h1>
     </header>
     <main class="row">
       <div class="col sm 12 panel">
+        <!-- the title of the image scraped would go in the h2 -->
         <h2 class="panel-heading text-center">News Title</h2>
       </div>
       <div class="panel-body">
+        <!-- an image(s) associated with the article would go in the img tag -->
         <img src="imglink" alt="news image" class="img-thumbnail center-block">
         <p>News Summary</p>
+        <!-- the link associated with the article would go in the href tag -->
         <p><a href="newslink" target="_blank"><button class="btn">Read Story</button></a>
-          <h3 class="text-center">Comments</h3>
-          <p class="text-center">Comment</br>
+          <h3>Comments</h3>
+          <p>Comment</br>
             Name</p>
-          <button id="deleteComment" class="btn btn-xs">Delete Comment</button>
-          <h3 class="text-center">Add Comment</h3>
-          <p class="text-center"><input type="text" placeholder=" Your Name"></p>
-          <p class="text-center"><textarea rows="5" placeholder=" Your Comment"></textarea></p>
-          <button id="deleteComment" class="btn btn-xs">Add Comment</button>
+          <div class="text-right">
+            <button id="deleteComment" style="text-center" class="btn btn-xs text-center">Delete Comment</button>
+          </div>
+          <div class="row">
+            <div class="col sm 12">
+              <h3>Add Comment</h3>
+              <p><input type="text" class="textwrapper" placeholder=" Your Name"></p>
+              <p id="commentArea"><textarea rows="5" class="textwrapper" placeholder=" Your Comment"></textarea></p>
+            </div>
+          </div>
+          <div class="text-center">
+            <button id="deleteComment" class="btn btn-xs">Add Comment</button>
+          </div>
       </div>
 
     </main>
