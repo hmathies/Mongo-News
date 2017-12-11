@@ -20,10 +20,13 @@ $(() => {
     $("#comments").html("");
   })
   //===========================================================
-  //need to include an onclick to go back to index page
+  //onclick to go back to index page
   //==============================================================
-
-
+  $("#homeButton").click((e) => {
+    e.preventDefault();
+    console.log("Home page button clicked");
+    location.href = "/";
+  });
 
   //~closing tags for document on ready function are below
 })
