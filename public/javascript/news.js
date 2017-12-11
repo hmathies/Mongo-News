@@ -7,20 +7,21 @@ $(() => {
       comment: $("#commentArea").val().trim()
     }
     console.log("This user posted: ", userComment)
-
+    addComment(userComment)
   })
-  // getComments()
-  // function addComments(comment) {
-  //   $("#comments").append(`<h4> ${comment.name} </h4> <p> ${comment.commentArea} </p>`)
-  // }
-  //
-  // function getMessages() {
-  //   $.get('http://localhost:3000/messages', (data) => {
-  //     data.forEach(addComments)
-  //   })
-  // }
-  //click event for Scraping
-
+  //dynamically display user name and comment to the page
+  function addComment(userComment) {
+    $("#comments").append(`<h6> ${userComment.name} </h6> <p> ${userComment.comment} </p>`)
+  }
+  //click event to delete a comment--will need to change to delete only one comment
+  $("#deleteComment").click((e) => {
+    e.preventDefault();
+    console.log("delete button has been clicked");
+    $("#comments").html("");
+  })
+  //===========================================================
+  //need to include an onclick to go back to index page
+  //==============================================================
 
 
 
