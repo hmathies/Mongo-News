@@ -1,25 +1,28 @@
 $(() => {
-  $("#addComment").click(() => {
-    var comment = {
+  //click event for caputuring user and comment input
+  $("#addComment").click((e) => {
+    e.preventDefault();
+    var userComment = {
       name: $("#name").val().trim(),
       comment: $("#commentArea").val().trim()
     }
-    console.log("clicked")
-    postComment(comment)
+    console.log("This user posted: ", userComment)
+
   })
-  getComments()
+  // getComments()
+  // function addComments(comment) {
+  //   $("#comments").append(`<h4> ${comment.name} </h4> <p> ${comment.commentArea} </p>`)
+  // }
+  //
+  // function getMessages() {
+  //   $.get('http://localhost:3000/messages', (data) => {
+  //     data.forEach(addComments)
+  //   })
+  // }
+  //click event for Scraping
+
+
+
+
+  //~closing tags for document on ready function are below
 })
-
-function addComments(comment) {
-  $("#comments").append(`<h4> ${comment.name} </h4> <p> ${comment.commentArea} </p>`)
-}
-
-function getMessages() {
-  $.get('http://localhost:3000/messages', (data) => {
-    data.forEach(addComments)
-  })
-}
-
-function postComment(comment) {
-  $.post('http://localhost:3000/messages', comment)
-}
