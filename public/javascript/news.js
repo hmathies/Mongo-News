@@ -1,8 +1,8 @@
 $(() => {
   $("#addComment").click(() => {
     var comment = {
-      name: $("#name").val(),
-      comment: $("#commentArea").val()
+      name: $("#name").val().trim(),
+      comment: $("#commentArea").val().trim()
     }
     console.log("clicked")
     postComment(comment)
@@ -20,6 +20,6 @@ function getMessages() {
   })
 }
 
-function postComments(comment) {
+function postComment(comment) {
   $.post('http://localhost:3000/messages', comment)
 }
