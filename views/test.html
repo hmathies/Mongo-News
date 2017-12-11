@@ -19,55 +19,23 @@
 </head>
 
 <body>
+  <main class="row">
+    <div class="container">
+      <header class="page-header">
+        <!-- static image at the top of page -->
+        <img src="..." alt="Stories that inspire" class="rounded mx-auto d-block">
+        <h1 class="text-center">"News, the Mongo Way"</h1>
+        <button id="scrapeButton" type="button" class="btn btn-dark btn-lg">Scrape</button>
+      </header>
 
-  <div class="container">
-    <header class="page-header">
-      <!-- static image at the top of page -->
-      <img src="..." alt="Stories that inspire" class="rounded mx-auto d-block">
-      <h1 class="text-center">"News, the Mongo Way"</h1>
-    </header>
-    <main class="row">
-      <!--       <div class="col sm 12 panel">
-        <!-- the title of the image scraped would go in the h2 -->
-      <!--         <h2 class="panel-heading text-center">News Title</h2>
- -->
-      <!-- div -->
-      <!--       <div class="panel-body">
- -->
-      <!-- an image(s) associated with the article would go in the img tag -->
-      <!--         <img src="imglink" alt="news image" class="img-thumbnail center-block"> -->
+
       <div>
         <h4 class="newsTitle"></h4>
         <p class="newsSummary"></p>
         <!-- the link associated with the article would go in the href tag -->
-        <p><a href="newslink" class="newsLink"><button class="btn">Read Story</button></a></p>
+        <a class="newsLink" href="#" class="badge badge-dark"></a>
       </div>
-
-
-      <!-- dynamically input the comments and associated users
-           -->
-      <div>
-        <h3>Comments</h3>
-        <p class="comment"></p>
-        <p class="userName"></p>
-
-      </div>
-
-      <div class="text-right">
-        <button id="deleteComment" style="text-center" class="btn btn-xs text-center">Delete Comment</button>
-      </div>
-      <div class="row">
-        <div class="col sm 12">
-          <h3>Add Comment</h3>
-          <p><input type="text" class="textwrapper" placeholder=" Your Name"></p>
-          <p id="commentArea"><textarea rows="5" class="textwrapper" placeholder=" Your Comment"></textarea></p>
-        </div>
-      </div>
-      <div class="text-center">
-        <button id="deleteComment" class="btn btn-xs">Add Comment</button>
-      </div>
-  </div>
-
+    </div>
   </main>
 
 
@@ -86,7 +54,11 @@
   The comments should be saved to the database as well and associated with their articles.
   Users should also be able to delete comments left on articles. All stored comments should be
   visible to every user. -->
-
+  <footer class="bd-footer text-muted">
+    <div class="container-fluid p-3 p-md-5">
+      <p>Designed and built by Heather Mathies. You can find the code<a href="https://github.com/hmathies/Mongo-News" target="_blank" rel="noopener"> here</a>.</p>
+    </div>
+  </footer>
 
 
   <!-- jQuery Google CDN -->
