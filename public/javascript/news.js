@@ -1,25 +1,32 @@
 $(() => {
-  $("#addComment").click(() => {
-    var comment = {
+  //click event for caputuring user and comment input
+  $("#addComment").click((e) => {
+    e.preventDefault();
+    var userComment = {
       name: $("#name").val().trim(),
       comment: $("#commentArea").val().trim()
     }
-    console.log("clicked")
-    postComment(comment)
+    console.log("This user posted: ", userComment)
+    addComment(userComment)
   })
-  getComments()
+  //dynamically display user name and comment to the page
+  function addComment(userComment) {
+    $("#comments").append(`<h6> ${userComment.name} </h6> <p> ${userComment.comment} </p>`)
+  }
+  //click event to delete a comment--will need to change to delete only one comment
+  $("#deleteComment").click((e) => {
+    e.preventDefault();
+    console.log("delete button has been clicked");
+    $("#comments").html("");
+  })
+  //===========================================================
+  //onclick to go back to index page
+  //==============================================================
+  $("#homeButton").click((e) => {
+    e.preventDefault();
+    console.log("Home page button clicked");
+    location.href = "/";
+  });
+
+  //~closing tags for document on ready function are below
 })
-
-function addComments(comment) {
-  $("#comments").append(`<h4> ${comment.name} </h4> <p> ${comment.commentArea} </p>`)
-}
-
-function getMessages() {
-  $.get('http://localhost:3000/messages', (data) => {
-    data.forEach(addComments)
-  })
-}
-
-function postComment(comment) {
-  $.post('http://localhost:3000/messages', comment)
-}
