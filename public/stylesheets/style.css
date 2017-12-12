@@ -1,11 +1,31 @@
-#commentArea {
-  width: 100%;
+header {
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding: 25px;
 }
-
+#topTitle{
+  margin: 0px;
+}
+#scrapeButton{
+  margin-left: 45%;
+  background-color: black;
+  color: white;
+}
 .textwrapper
 {
   border:1px solid #999999;
   margin:5px 0;
   padding:3px;
   width: 50%;
+}
+
+#homeButton {
+  margin-left: 45%;
+  background-color: black;
+  color: white;
+}
+
+main{
+  min-height: 550px;
 }
