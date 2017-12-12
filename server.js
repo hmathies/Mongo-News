@@ -1,6 +1,9 @@
 var express = require('express');
 var bodyParser = require("body-parser");
 var exphbs = require('express-handlebars');
+var logger = require("morgan");
+var mongoose = require("mongoose");
+var cheerio = require("cheerio");
 var port = process.env.PORT || 3000;
 var app = express();
 

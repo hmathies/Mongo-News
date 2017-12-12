@@ -1,4 +1,17 @@
-
+header {
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+#topTitle{
+  margin: 0px;
+}
+#scrapeButton{
+  margin-left: 45%;
+  background-color: black;
+  color: white;
+}
 .textwrapper
 {
   border:1px solid #999999;
@@ -10,6 +23,9 @@
 #homeButton {
   margin-left: 45%;
   background-color: black;
-  color: white; 
+  color: white;
+}
 
+main{
+  min-height: 550px;
 }
