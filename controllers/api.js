@@ -12,7 +12,40 @@ var db = require("../models");
 
 module.exports = function(app) {
 
+  //===========comments routes=====================
 
+  // Handle form submission, save submission to mongo
+  app.post("/addComment", function(req, res) {
+    console.log(req.body);
+    // Insert the note into the comments collection
+    db.comments.insert(req.body, function(error, saved) {
+      // Log any errors
+      if (error) {
+        console.log(error);
+      }
+      // Otherwise, send the note back to the browser
+      // This will fire off the success function of the ajax request
+      else {
+        res.send(saved);
+      }
+    });
+  });
+
+  // Retrieve results from mongo
+  app.get("/all", function(req, res) {
+    // Find all comments in the comments collection
+    db.comments.find({}, function(error, found) {
+      // Log any errors
+      if (error) {
+        console.log(error);
+      }
+      // Otherwise, send json of the comments back to user
+      // This will fire off the success function of the ajax request
+      else {
+        res.json(found);
+      }
+    });
+  });
 }
 
 // Scrape data from one site and place it into the mongodb db
