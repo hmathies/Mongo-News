@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.get('/news/:id', function(req, res) {
     res.render('news');
   });
-  app.get('/', function(req, res) {
+  app.get('*', function(req, res) {
     res.render('index');
   });
 }
