@@ -3,7 +3,7 @@ function getComments() {
   // Empty any Comments currently on the page
   $("#comments").empty();
   // Grab all of the current notes
-  $.getJSON("news", function(data) {
+  $.getJSON("/all", function(data) {
     // For each note...
     for (var i = 0; i < data.length; i++) {
       // ...populate #Comments with a p-tag that includes the note's title and object id

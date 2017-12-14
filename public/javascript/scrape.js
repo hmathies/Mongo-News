@@ -1,6 +1,6 @@
-$(() => {
+$(function() {
   //click event for Scraping
-  $("#scrapeButton").click((e) => {
+  $("#scrapeButton").click(function(e) {
     e.preventDefault();
     console.log("Scraped button has been clicked")
     //once the button is clicked, the app will scrape npr and then list 10 headlines, with associated -

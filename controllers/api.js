@@ -6,6 +6,7 @@
 var mongoose = require("mongoose");
 var cheerio = require("cheerio");
 var request = require('request');
+var path = require('path');
 
 // Require all models
 var db = require("../models");
@@ -16,12 +17,12 @@ module.exports = function(app) {
 
   // Handle form submission, save submission to mongo
   app.post("/addComment", function(req, res) {
-    console.log(req.body);
+    console.log('This is the req.body: ', req.body);
     // Insert the note into the comments collection
     db.comments.insert(req.body, function(error, saved) {
       // Log any errors
       if (error) {
-        console.log(error);
+        console.log('This is the insert error: ', error);
       }
       // Otherwise, send the note back to the browser
       // This will fire off the success function of the ajax request
@@ -34,15 +35,16 @@ module.exports = function(app) {
   // Retrieve results from mongo
   app.get("/all", function(req, res) {
     // Find all comments in the comments collection
-    db.comments.find({}, function(error, found) {
+
+    db.comment.find({}, function(error, comments) {
       // Log any errors
       if (error) {
-        console.log(error);
+        console.log("THIS IS THE ERROR FOR THE FIND FUNCTION: ", error);
       }
       // Otherwise, send json of the comments back to user
       // This will fire off the success function of the ajax request
       else {
-        res.json(found);
+        res.json(comments);
       }
     });
   });
