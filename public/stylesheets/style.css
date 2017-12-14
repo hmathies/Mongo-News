@@ -27,5 +27,10 @@ header {
 }
 
 main{
-  min-height: 550px;
+    min-height: 550px;
+}
+
+body{
+
+  background-color: rgba(20, 30, 7, 0.2);
 }
