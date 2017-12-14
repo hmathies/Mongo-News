@@ -1,3 +1,7 @@
+/*===============================================================================================
+          ARTICLE MODEL--SCHEMA USING MONGOOSE
+===============================================================================================*/
+
 var mongoose = require("mongoose");
 
 // Save a reference to the Schema constructor
@@ -25,11 +29,12 @@ var ArticleSchema = new Schema({
   comment: {
     type: Schema.Types.ObjectId,
     ref: "Comment"
-  }
+  },
+  fullComments: []
 });
 
 // This creates the model from the above schema, using mongoose's model method
-var Article = mongoose.model("Article", ArticleSchema);
+var Article = mongoose.model("article", ArticleSchema);
 
 // Export the Book model
 module.exports = Article;

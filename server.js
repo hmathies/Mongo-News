@@ -4,15 +4,19 @@ var exphbs = require('express-handlebars');
 var mongoose = require("mongoose");
 var cheerio = require("cheerio");
 var request = require('request');
+var path = require('path');
 
-// Require all models
-var db = require("./models");
+
 //will need to change this for production
 var port = process.env.PORT || 3000;
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 //initialize express
 var app = express();
+
+// Require all models
+var db = require("./models");
+
 
 // Configure middleware
 
@@ -28,18 +32,29 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/mongoNews", {
   useMongoClient: true,
+});
+
+mongoose.Promise = global.Promise;
+var dbConn = mongoose.connection;
+
+//check connection
+dbConn.once('open', function() {
+  console.log('Connected to MongoDB');
+});
+
+//check for DB errors
+dbConn.on('error', function(err) {
+  console.log('Error is coming from DB in Server.js file: ', err);
 });
 
 
 //import routes and give server access to them
 //api routes must come above html routes
-require("./controllers/api.js")(app);
+require("./controllers/api-articles.js")(app);
+require("./controllers/api-comments.js")(app);
 //html routes
 require("./controllers/html.js")(app);
 
