@@ -9,7 +9,7 @@ var path = require('path');
 
 //will need to change this for production
 var port = process.env.PORT || 3000;
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoNews";
 
 //initialize express
 var app = express();
@@ -33,7 +33,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/mongoNews", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true,
 });
 
