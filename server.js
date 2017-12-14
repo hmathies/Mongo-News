@@ -36,6 +36,7 @@ app.set('view engine', 'handlebars');
 mongoose.connect("mongodb://localhost/mongoNews", {
   useMongoClient: true,
 });
+mongoose.Promise = global.Promise;
 var dbConn = mongoose.connection;
 
 //check connection
@@ -51,7 +52,8 @@ dbConn.on('error', function(err) {
 
 //import routes and give server access to them
 //api routes must come above html routes
-require("./controllers/api.js")(app);
+require("./controllers/api-articles.js")(app);
+require("./controllers/api-comments.js")(app);
 //html routes
 require("./controllers/html.js")(app);
 
