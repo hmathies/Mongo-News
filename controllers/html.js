@@ -12,7 +12,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  app.get('/news', function(req, res) {
+  app.get('/news/:id', function(req, res) {
     res.render('news');
   });
   app.get('/', function(req, res) {

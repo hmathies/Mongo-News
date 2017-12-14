@@ -1,6 +1,7 @@
-// Exporting an object containing both models
-
+/*===============================================================================================
+            THIS FILE EXPORTS AN OBJECT WHICH CONTAINS BOTH MODELS
+===============================================================================================*/
 module.exports = {
-  Comment: require("./Article"),
-  Article: require("./Comment")
+  Comment: require("./Comment"),
+  Article: require("./Article")
 };
