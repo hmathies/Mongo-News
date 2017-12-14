@@ -27,7 +27,7 @@
 <p>The application does not currently include images associated with articles and that will be added in future versions.  </p>
 
 
-<h2>Mongo News can be found on Heroku <a href='https://git.heroku.com/news-the-mongo-way.git'>here</a></h2>
+<h2>Mongo News can be found on Heroku <a href='https://news-the-mongo-way.herokuapp.com/'>here</a></h2>
 <!--
 ![Screenshot](public/assets/images/ewok.jpeg)
 <p>Credit: This is a clipart image and can be found at: </p> http://weclipart.com/gimg/A425F14D40565938/il_340x270.558688970_2sb2.jpg
