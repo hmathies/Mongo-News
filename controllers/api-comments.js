@@ -20,10 +20,11 @@ module.exports = function(app) {
   app.post("/addComment", function(req, res) {
     console.log('This is the req.body: ', req.body);
     // Insert the note into the comments collection
-    db.comments.insert(req.body, function(error, saved) {
+    var comment = new db.Comment(req.body);
+    comment.save(function(error, saved) {
       // Log any errors
       if (error) {
-        console.log('This is the insert error: ', error);
+        console.log('This is the insert error: ' + error);
       }
       // Otherwise, send the note back to the browser
       // This will fire off the success function of the ajax request
@@ -39,7 +40,7 @@ module.exports = function(app) {
   app.get("/all", function(req, res) {
     // Find all comments in the comments collection
 
-    db.comment.find({}, function(error, comments) {
+    db.Comment.find({}, function(error, comments) {
       // Log any errors
       if (error) {
         console.log("THIS IS THE ERROR FOR THE FIND FUNCTION: ", error);
@@ -48,6 +49,28 @@ module.exports = function(app) {
       // This will fire off the success function of the ajax request
       else {
         res.json(comments);
+      }
+    });
+  });
+
+  /*==========================================================================================
+          ROUTE TO DELETE A COMMENT FROM THE DB
+  ===========================================================================================*/
+  app.get("/delete/:id", function(req, res) {
+    // Remove a note using the objectID
+    db.comments.remove({
+      "_id": ObjectID(req.params.id)
+    }, function(error, removed) {
+      // Log any errors
+      if (error) {
+        console.log(error);
+        res.send(error);
+      }
+
+      // This will fire off the success function of the ajax request
+      else {
+        console.log(removed);
+        res.send(removed);
       }
     });
   });

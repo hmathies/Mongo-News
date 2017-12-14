@@ -1,4 +1,4 @@
-//app model which defines the user and their associated comments
+//COMMENT model which defines the user and their associated comments
 var mongoose = require("mongoose");
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
@@ -10,7 +10,7 @@ var CommentSchema = new Schema({
 });
 
 // This creates the model from the above schema, using mongoose's model method
-var Comment = mongoose.model("Comment", CommentSchema);
+var Comment = mongoose.model("comment", CommentSchema);
 
 // Export the Book model
 module.exports = Comment;

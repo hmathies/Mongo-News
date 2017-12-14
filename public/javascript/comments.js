@@ -1,4 +1,13 @@
-// Loads Comments onto the page
+/*========================================================================================================
+THIS FILE IS THE FUNCTIONAILTIY IN THE BROWSER OF POSTING, RETRIEVING, AND DELETING COMMENTS
+========================================================================================================*/
+// Runs the getComments function as soon as the script is executed
+getComments();
+/*===============================================================================================
+             FUNCTION THA RETRIEVES THE USER COMMENTS AND DYNAMICALLY DISPLAYS THE NAME OF THE
+             PERSON WHO WROTE THE COMMENT, THE COMMENT, AND A DELETE BUTTON ASSOCIATED TO IT
+===============================================================================================*/
+
 function getComments() {
   // Empty any Comments currently on the page
   $("#comments").empty();
@@ -13,13 +22,16 @@ function getComments() {
   });
 }
 
-// Runs the getComments function as soon as the script is executed
-getComments();
 
-// When the #makenew button is clicked
+
+/*===============================================================================================
+            ONCLICK FUNCTION IN BROWSER SO THAT USERS CAN POST COMMENTS TO THE PAGE
+===============================================================================================*/
+// When the #addComment button is clicked
 $(document).on("click", "#addComment", function() {
   // AJAX POST call to the submit route on the server
   // This will take the data from the form and send it to the server
+
   $.ajax({
       type: "POST",
       dataType: "json",
@@ -39,7 +51,9 @@ $(document).on("click", "#addComment", function() {
       $("#comment").val("");
     });
 });
-
+/*===============================================================================================
+            FUNCTION IN BROWSER SO THAT USERS CAN DELETE A COMMENT
+===============================================================================================*/
 // When user clicks the deleter button for a note
 $(document).on("click", ".deleter", function() {
   // Save the p tag that encloses the button

@@ -36,6 +36,7 @@ app.set('view engine', 'handlebars');
 mongoose.connect("mongodb://localhost/mongoNews", {
   useMongoClient: true,
 });
+
 mongoose.Promise = global.Promise;
 var dbConn = mongoose.connection;
 

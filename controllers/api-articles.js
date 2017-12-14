@@ -1,3 +1,5 @@
+var db = require('../models');
+
 module.exports = function(app) {
 
   /*===============================================================================================================
@@ -23,7 +25,7 @@ module.exports = function(app) {
         // If this found element had a title, summary and a link
         if (title && link && summary) {
           // Insert the data in the article db
-          db.article.create({
+          db.Article.create({
               title: title,
               link: link,
               summary: summary
@@ -45,19 +47,29 @@ module.exports = function(app) {
     res.send("Scrape Complete");
   });
   /*===========================================================================================================
-                    RETRIEVE DATA FROM THE DB AND DISPLAY TEN ARTICLES IN THE BROWSER
+                    RETRIEVE DATA FROM THE DB AND DISPLAY ARTICLES IN THE BROWSER
   ============================================================================================================*/
 
-  app.get("/all", function(req, res) {
+  app.get("/article/:id", function(req, res) {
     // Find all results from the articles collection in the db
-    db.article.find({}, function(error, found) {
+    db.Article.findOne({
+      _id: req.params.id
+    }, function(error, found) {
       // Throw any errors to the console
       if (error) {
         console.log(error);
       }
       // If there are no errors, send the data to the browser as json
       else {
-        res.json(found);
+        db.Comment.find({
+          _id: {
+            $in: found.comments
+          }
+        }, function(error, comments) {
+          found.fullComments = comments;
+          console.log(comments);
+          res.json(found);
+        });
       }
     });
   });
