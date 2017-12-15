@@ -3,6 +3,7 @@ header {
   color: white;
   text-align: center;
   padding: 25px;
+  width
 }
 #topTitle{
   margin: 0px;
@@ -33,4 +34,12 @@ main{
 body{
 
   background-color: rgba(20, 30, 7, 0.2);
+}
+
+#foot{
+  height: 100px;
+  padding: 20px;
+  text-align: center;
+  color:antiquewhite;
+  background-color: rgb(36, 46, 38);
 }

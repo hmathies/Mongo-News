@@ -26,7 +26,7 @@ $(function() {
 
           $("#scrapes").append("<h4>" + title + "</h4>" +
             "<p>" + summary + "</p>" +
-            "<a href>" + url + "<a href>");
+            "<a href>" + url + "<a href>" + "<hr>");
 
         });
       }
