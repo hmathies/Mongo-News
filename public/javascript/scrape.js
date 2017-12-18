@@ -25,7 +25,7 @@ $(function() {
           var summary = $(element).children("p.teaser").text();
 
           $("#scrapes").append("<h4>" + title + "</h4>" + "<br>" +
-            "<p>" + summary + "</p>" + "<br>"
+            "<p>" + summary + "</p>" + "<br>" +
             "<a href>" + url + "<a href>" + "<hr>");
 
         });
