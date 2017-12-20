@@ -29,7 +29,19 @@ module.exports = function(app) {
       // Otherwise, send the note back to the browser
       // This will fire off the success function of the ajax request
       else {
-        res.json(saved);
+        db.Article.findById(req.body.article, function(err, article){
+          if(err){
+            console.log(err);
+          }
+          article.comments.push(saved._id);
+          article.save(function(err, article){
+          if (err){
+            console.log(err);
+          }
+          res.json(saved);
+        });
+
+      });
       }
     });
   });

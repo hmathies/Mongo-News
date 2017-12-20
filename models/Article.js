@@ -26,10 +26,10 @@ var ArticleSchema = new Schema({
   // `comment` is an object that stores a Comment id
   // The ref property links the ObjectId to the Comment model
   // This allows me to populate the Article with an associated Comment
-  comment: {
+  comments: [{
     type: Schema.Types.ObjectId,
     ref: "Comment"
-  },
+  }],
   fullComments: []
 });
 

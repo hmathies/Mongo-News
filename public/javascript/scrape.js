@@ -13,8 +13,8 @@ $(function() {
     // $("#scrapes").empty();
 
     $.ajax({
-      url: 'https://www.npr.org/sections/news/',
-      dataType: '',
+      url: 'https://cors-anywhere.herokuapp.com/https://www.npr.org/sections/news/',
+      dataType: 'html',
       data: {},
       success: function(html) {
         var $html = $(html);
