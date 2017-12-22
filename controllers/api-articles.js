@@ -83,4 +83,21 @@ module.exports = function(app) {
       }
     });
   });
+
+  app.get("/articles", function(req,res) {
+    db.Article.find({}, function(err, articles){
+      if (err){
+        console.log(err);
+      }else{
+        res.json(articles);
+      }
+    });
+  });
+
+  app.post("/article", function(req, res){
+    var article = new db.Article(req.body);
+    article.save(function(err, saved){
+      res.json(saved);
+    });
+  });
 };

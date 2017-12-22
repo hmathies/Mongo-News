@@ -66,7 +66,7 @@ module.exports = function(app) {
   });
 
   /*==========================================================================================
-          ROUTE TO DELETE A COMMENT FROM THE DB
+        Need to completely change this delete--- do the reverse of addComment
   ===========================================================================================*/
   app.get("/delete/:id", function(req, res) {
     // Remove a note using the objectID
