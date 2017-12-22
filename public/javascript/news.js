@@ -10,7 +10,7 @@ $(function() {
     for (var i = 0; i < data.fullComments.length; i++) {
       // ...populate #Comments with a p-tag that includes the comments's title and object id
       $("#comments").prepend("<p class='dataentry' data-id=" + data.fullComments[i]._id + "><span class='dataName' data-id=" +
-        data.fullComments[i]._id + ">" + data.fullComments[i].name + "<br>" + data.fullComments[i].comment + "<br>" + "</span><span class=deleter>X</span></p>");
+        data.fullComments[i]._id + ">" + data.fullComments[i].name + "<br>" + data.fullComments[i].comment + " " + "</span><button class='deleter'>Delete</button></p>");
     }
   });
 
@@ -37,7 +37,7 @@ $(document).on("click", "#addComment", function() {
     .done(function(data) {
       // Add the message and delete button to the #Comments section
       $("#comments").prepend("<p class='dataentry' data-id=" + data._id + "><span class='dataName' data-id=" +
-        data._id + ">" + data[i].name + "/n'" + data[i].message + "</span><span class=deleter>X</span></p>");
+        data._id + ">" + data[i].name + "/n'" + data[i].message + "</span><span class='deleter'>X</span></p>");
       // Clear the note and title inputs on the page
       $("#name").val("");
       $("#comment").val("");

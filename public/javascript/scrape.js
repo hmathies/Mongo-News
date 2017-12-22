@@ -6,7 +6,7 @@ $(function() {
     //click event for Scraping
     displayScrapes();
   });
-//google js going back a page
+
   function displayScrapes(articles) {
 
     // Empty any Articles currently on the page
@@ -27,7 +27,7 @@ $(function() {
 
           $("#scrapes").append("<div id='scrapeArticle"+ i + "'><h4>" + title + "</h4>" +
             "<p>" + summary + "</p>" +
-            "<p><a href='" + url + "'>" + url + "</a></p>" +
+            "<p><a href='" + url + "'>" + "Click here to read the full article" + "</a></p>" +
             "<button class='scrapeSave' data-id='" + i + "'>Save</button></div>");
 
         });

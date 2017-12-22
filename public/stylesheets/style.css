@@ -1,50 +1,4 @@
-/* header {
-  background-color: green;
-  color: white;
-  text-align: center;
-  padding: 25px;
-  width: 100%;
-  height: 200px;
-}
-#topTitle{
-  margin: 0px;
-}
-#scrapeButton{
-  margin-left: 45%;
-  background-color: black;
-  color: white;
-}
-.textwrapper
-{
-  border:1px solid #999999;
-  margin:5px 0;
-  padding:3px;
-  width: 50%;
-}
 
-#homeButton {
-  margin-left: 45%;
-  background-color: black;
-  color: white;
-}
-
-main{
-    min-height: 900px;
-}
-
-body{
-
-  background-color: rgba(20, 30, 7, 0.2);
-}
-
-#foot{
-  height: 100px;
-  padding: 20px;
-  text-align: center;
-  color:antiquewhite;
-  background-color: rgb(36, 46, 38);
-  min-height: 200px;
-} */
 header {
   background-color: green;
   color: white;
@@ -62,27 +16,33 @@ header {
   margin-left: 40%;
   background-color: black;
   color: white;
-  width: 20%;;
+  width: 20%;
+  font-size: 30px;
 }
 .textwrapper
 {
   border:1px solid #999999;
   margin:5px 0;
-  padding:3px;
+  padding:10px;
   width: 50%;
+  font-size: 20px;
 }
 
 #homeButton {
   margin-left: 45%;
   background-color: black;
   color: white;
+  padding: 10px;
+  font-size: 25px;
 }
 
 main{
     min-height: 900px;
+
 }
 h1{
   font-size: 60px;
+  font-weight: 600;
 }
 
 body{
@@ -103,5 +63,109 @@ body{
 }
 h4{
   font-size: 25px;
-  font-style: oblique;
+  font-stretch: expanded;
+}
+
+main#newsPage  {
+  padding: 60px;
+  margin: 60px;
+}
+
+.savedArticle {
+  padding: 10px;
+  border-bottom: 6px solid darkgray;
+}
+
+.savedArticle p {
+  font-size: 25px;
+  line-height: 1.5em;
+  margin-top: 15px;
+}
+.savedArticle h4 {
+  font-size: 35px;
+}
+
+div#scrapeArticle{
+  padding: 10px;
+  border-bottom: 6px solid darkgray;
+}
+
+#scrapes p {
+  font-size: 25px;
+  line-height: 1.5em;
+  margin-top: 15px;
+}
+#scrapes h4 {
+  font-size: 35px;
+}
+.scrapeSave {
+  border: 1px solid gray;
+  font-size: 18px;
+  width: 5%;
+  margin-left: 950px;
+  padding: 5px;
+
+}
+.scrapeSave:hover {
+    background-color: rgb(36, 46, 38);
+    color: white;
+}
+
+
+main h2 {
+  font-size: 35px;
+  border: 3px solid black;
+  background-color: #181C0B;
+  color: white;
+  width: 25%;
+  padding: 10px;
+
+}
+
+#newsInfo {
+  padding: 20px;
+  line-height: 1.5em;
+}
+
+#commentDiv {
+  padding: 30px;
+}
+
+#addComment {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+#comments {
+  line-height: 2em;
+}
+
+.deleter {
+  border: 1px solid gray;
+
+}
+
+.deleter:hover {
+    background-color: rgb(36, 46, 38);
+    color: white;
+}
+
+.dataentry{
+  font-size: 18px;
+  margin: 5px;
+}
+
+.dataName {
+  font-size: 22px;
+}
+
+.newsArticle {
+  font-size: 25px;
+  padding: 30px;
+  line-height: 1.5em;
+}
+
+.newsTitle {
+  font-size: 50px;
+  padding: 10px;
 }
