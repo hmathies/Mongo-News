@@ -68,11 +68,10 @@ module.exports = function(app) {
   /*==========================================================================================
         Need to completely change this delete--- do the reverse of addComment
   ===========================================================================================*/
-  app.get("/delete/:id", function(req, res) {
+  app.delete("/delete/:id", function(req, res) {
     // Remove a note using the objectID
-    db.comments.remove({
-      "_id": ObjectID(req.params.id)
-    }, function(error, removed) {
+    db.Comment.findByIdAndRemove(req.params.id,
+    function(error, removed) {
       // Log any errors
       if (error) {
         console.log(error);

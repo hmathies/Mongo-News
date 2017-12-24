@@ -1,16 +1,17 @@
 $(function() {
   // Empty any Comments currently on the page
-  $("#comments").empty();
+  // $("#comments").empty();
   // creating a variable to hold the id of the article in place it in the url
   var id = location.href.substring(location.href.lastIndexOf('/') + 1);
   $.getJSON("/article/" + id, function(data) {
-    $(".newsTitle").text(data.title);
+    $("#newsTitle").text(data.title);
     //the below line needs to change to have the entire article, not the summary
-    $(".newsArticle").text(data.summary);
+    $("#newsArticle").text(data.summary);
+    $("#newsLink").attr("href", data.url);
     for (var i = 0; i < data.fullComments.length; i++) {
       // ...populate #Comments with a p-tag that includes the comments's title and object id
-      $("#comments").prepend("<p class='dataentry' data-id=" + data.fullComments[i]._id + "><span class='dataName' data-id=" +
-        data.fullComments[i]._id + ">" + data.fullComments[i].name + "<br>" + data.fullComments[i].comment + " " + "</span><button class='deleter'>Delete</button></p>");
+      $("#comments").prepend("<p class='dataentry'><span class='dataName'>" +
+      data.fullComments[i].name + "<br>" + data.fullComments[i].comment + " " + "</span><button data-id=" + data.fullComments[i]._id + " class='deleter'>Delete</button></p>");
     }
   });
 
@@ -19,7 +20,9 @@ $(function() {
             ONCLICK FUNCTION IN BROWSER SO THAT USERS CAN POST COMMENTS TO THE PAGE
 ===============================================================================================*/
 // When the #addComment button is clicked
-$(document).on("click", "#addComment", function() {
+//try to make screen refresh with newly saved comments
+$(document).on("click", "#addComment", function(data) {
+
   // AJAX POST call to the submit route on the server
   // This will take the data from the form and send it to the server
 
@@ -33,11 +36,14 @@ $(document).on("click", "#addComment", function() {
         article: location.href.substring(location.href.lastIndexOf('/') + 1)
       }
     })
+
     // If that API call succeeds, add the title and a delete button for the note to the page
     .done(function(data) {
+        console.log(data);
       // Add the message and delete button to the #Comments section
-      $("#comments").prepend("<p class='dataentry' data-id=" + data._id + "><span class='dataName' data-id=" +
-        data._id + ">" + data[i].name + "/n'" + data[i].message + "</span><span class='deleter'>X</span></p>");
+      $("#comments").prepend("<p class='dataentry'><span class='dataName'>" +
+        data.name + "<br>" + data.comment + " " + "</span><button  data-id=" + data._id + "class='deleter'>Delete</button></p>");
+
       // Clear the note and title inputs on the page
       $("#name").val("");
       $("#comment").val("");
@@ -53,8 +59,8 @@ $(document).on("click", ".deleter", function() {
   // Make an AJAX GET request to delete the specific note
   // this uses the data-id of the p-tag, which is linked to the specific note
   $.ajax({
-    type: "GET",
-    url: "/all" + selected.attr("data-id"),
+    type: "DELETE",
+    url: "/delete/" + $(this).attr("data-id"),
 
     // On successful call
     success: function(response) {

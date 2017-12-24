@@ -13,8 +13,8 @@ $(function() {
     $("#scrapes").empty();
     //sometimes the scrape works and sometimes it doesn't because of NPR's website causing a cross-site error
     $.ajax({
-      // url: 'https://www.npr.org/sections/news/',
-      url: "/public/sampleArticle.html",
+      url: 'https://www.npr.org/sections/news/',
+      // url: "/public/sampleArticle.html",
       dataType: 'html',
       data: {},
       success: function(html) {
@@ -27,12 +27,12 @@ $(function() {
 
           $("#scrapes").append("<div id='scrapeArticle"+ i + "'><h4>" + title + "</h4>" +
             "<p>" + summary + "</p>" +
-            "<p><a href='" + url + "'>" + "Click here to read the full article" + "</a></p>" +
+            "<p><a target='_blank' href='" + url + "'>" + "Click here to read the full article" + "</a></p>" +
             "<button class='scrapeSave' data-id='" + i + "'>Save</button></div>");
 
         });
 
-        //try to make screen refresh with newly saved articles
+
         $(".scrapeSave").click(function(){
           var id = "#scrapeArticle" + $(this).data("id");
           var article = {
