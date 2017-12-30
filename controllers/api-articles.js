@@ -95,9 +95,21 @@ module.exports = function(app) {
   });
 
   app.post("/article", function(req, res){
+
     var article = new db.Article(req.body);
-    article.save(function(err, saved){
-      res.json(saved);
-    });
+    db.Article.find({title: article.title, summary: article.summary}, function (error, docs){
+      console.log(docs);
+      console.log(article);
+      if (error){
+        console.log(error);
+      }if (docs.length == 0){
+        article.save(function(err, saved){
+          res.json(saved);
+        });
+      }else {
+        res.json(docs[0]);
+      }
+    })
+
   });
 };

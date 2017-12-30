@@ -1,7 +1,6 @@
 // *********************************************************************************
 // COMMENT ROUTES FOR POST, GET, AND DELETE COMMENTS FROM THE DATABASE
 // *********************************************************************************
-// Dependencies--not sure if i need to include these since they are already listed in server.js
 // =============================================================
 var mongoose = require("mongoose");
 var cheerio = require("cheerio");
@@ -80,7 +79,14 @@ module.exports = function(app) {
 
       // This will fire off the success function of the ajax request
       else {
-        console.log(removed);
+        // var t = db.Article.update({}, {$pull:{comments:req.params.id}}, false, function(error, docs){
+        //   if (error){
+        //     console.log(error);
+        //   }else {
+        //     console.log(docs);
+        //   }
+        // });
+        console.log(t);
         res.send(removed);
       }
     });
