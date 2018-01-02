@@ -2,7 +2,6 @@ $(function() {
 
   $("#scrapeButton").click(function(e) {
     e.preventDefault();
-    console.log("Scraped button has been clicked");
     //click event for Scraping
     displayScrapes();
   });
@@ -14,6 +13,7 @@ $(function() {
     //sometimes the scrape works and sometimes it doesn't because of NPR's website causing a cross-site error
     $.ajax({
       url: 'https://www.npr.org/sections/news/',
+      //use the below link insteadof the npr link to test that the save article functionality and scrape button work
       // url: "/public/sampleArticle.html",
       dataType: 'html',
       data: {},
