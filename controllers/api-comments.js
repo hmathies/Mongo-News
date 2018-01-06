@@ -86,7 +86,7 @@ module.exports = function(app) {
         //     console.log(docs);
         //   }
         // });
-        console.log(t);
+        
         res.send(removed);
       }
     });
