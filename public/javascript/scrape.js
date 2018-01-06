@@ -12,9 +12,9 @@ $(function() {
     $("#scrapes").empty();
     //sometimes the scrape works and sometimes it doesn't because of NPR's website causing a cross-site error
     $.ajax({
-      // url: 'https://www.npr.org/sections/news/',
+      url: 'https://www.npr.org/sections/news/',
       //use the below link insteadof the npr link to test that the save article functionality and scrape button work
-      url: "/public/sampleArticle.html",
+      // url: "/public/sampleArticle.html",
       dataType: 'html',
       data: {},
       success: function(html) {
