@@ -4,20 +4,25 @@ header {
   color: white;
   text-align: center;
   padding: 25px;
-  min-height: 150px;
+  min-height: 100px;
   width: 100%;
 
 }
 #topTitle{
-  margin: 0px;
-  font-size: 40px;
+  margin-top: 0px;
+  font-size: 30px;
 }
+
+.webTitle {
+  margin: 10px;
+}
+
 #scrapeButton{
-  margin-left: 40%;
+  margin-left: 43%;
   background-color: black;
   color: white;
-  width: 20%;
-  font-size: 30px;
+  width: 15%;
+  font-size: 20px;
 }
 .textwrapper
 {
@@ -41,7 +46,7 @@ main{
 
 }
 h1{
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 600;
 }
 
@@ -59,7 +64,7 @@ body{
   font-size: 20px;
 }
 #newsTitle{
-  font-size: 70px;
+  font-size: 50px;
 }
 h4{
   font-size: 25px;
@@ -68,7 +73,7 @@ h4{
 
 main#newsPage  {
   padding: 60px;
-  margin: 60px;
+  margin: 20px;
 }
 
 .savedArticle, #scrapes div {
@@ -77,12 +82,12 @@ main#newsPage  {
 }
 
 .savedArticle p, #scrapes div p {
-  font-size: 25px;
+  font-size: 20px;
   line-height: 1.5em;
   margin-top: 15px;
 }
 .savedArticle h4, #scrapes div h4 {
-  font-size: 35px;
+  font-size: 25px;
 }
 
 .scrapeSave {
@@ -108,7 +113,7 @@ main h2 {
 }
 
 #newsInfo {
-  padding: 20px;
+  padding: 10px;
   line-height: 1.5em;
 }
 
@@ -124,6 +129,11 @@ main h2 {
 #comments {
   line-height: 2em;
 }
+#commentsDisplay{
+    margin-top: 10px;
+
+}
+
 
 .deleter {
   border: 1px solid gray;
@@ -151,13 +161,13 @@ main h2 {
 }
 
 #newsTitle {
-  font-size: 50px;
+  font-size: 40px;
   padding: 10px;
   line-height: 1em;
 }
 
 #newsLink {
   font-size: 18px;
-  padding: 10px;
+  padding: 30px;
   line-height: 1em;
 }
